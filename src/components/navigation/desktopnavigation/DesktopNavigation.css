@@ -1,0 +1,13 @@
+.desktopNavigationWrapper {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    background-color:#d5b3fd;
+}
+
+.navigationLogotype {
+    width: 120px;
+}
+
+.profile, .signinButton {
+    grid-column: 15/16 ;
+}
