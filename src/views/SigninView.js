@@ -12,12 +12,7 @@ export const SigninView = () => {
     const [, setAuthUser] = useContext(UserContext);
 
     const handleChange = (event) => {
-        if(event.target.id === 'username') {
-            setLoginCredentials({...loginCredentials, username: event.target.value });
-        } 
-        if (event.target.id === 'password') {
-            setLoginCredentials({...loginCredentials, password: event.target.value });
-        }
+            setLoginCredentials({...loginCredentials, [event.target.id]: event.target.value });
     };
 
     const signIn = () => {
@@ -30,9 +25,9 @@ export const SigninView = () => {
         <div>
             <h1>{loginCredentials.username}</h1>
             <form>
-                <input id="username" placeholder="Username" onChange={handleChange}/><br/>
+                <input id='username' placeholder="Username" onChange={event => handleChange(event)}/><br/>
 
-                <input id="password" placeholder="Password" onChange={handleChange}/>
+                <input id='password' placeholder="Password" onChange={event => handleChange(event)}/>
                 <button onClick={() => signIn()}>Logga in</button>
             </form>
             </div>
