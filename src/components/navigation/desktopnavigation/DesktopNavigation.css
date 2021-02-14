@@ -5,9 +5,30 @@
 }
 
 .navigationLogotype {
-    width: 120px;
+    width: 100px;
+    padding: 3%;
 }
 
 .profile, .signinButton {
     grid-column: 15/16 ;
+    cursor: pointer;
+    color: white;
+    font-weight: 1000;
+    font-family: 'Roboto', sans-serif;
+    padding: 3%;
+}
+
+.signinButton {
+    padding-top: 30%;
+}
+
+.signinButton:hover {
+    background-color: #89568acc;
+}
+
+.desktopNavigationTabs {
+    grid-column: 7/9;
+    align-items: center;
+    justify-self: center;
+    padding-top: 5%;
 }

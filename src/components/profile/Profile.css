@@ -1,9 +1,14 @@
 .profilePicture {
-    width: 50px;
+    width: 40px;
     border-radius: 50%;
+    display: inline;
 }
 
 .profileWrapper:hover .profileDropDown{
     display: block;
+}
+
+.userName {
+    padding-left: 5%;
 }
 

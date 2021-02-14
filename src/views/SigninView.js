@@ -24,7 +24,7 @@ export const SigninView = () => {
     return (
         <div>
             <h1>{loginCredentials.username}</h1>
-            <form>
+            <form className="signInForm">
                 <input id='username' placeholder="Username" onChange={event => handleChange(event)}/><br/>
 
                 <input id='password' placeholder="Password" onChange={event => handleChange(event)}/>

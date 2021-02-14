@@ -2,7 +2,8 @@ const HomeView = '/';
 const RecipeView = '/recipes';
 const DrinkView = '/drinks';
 const FoodView = '/food';
-const SigninView = '/signin'
+const SigninView = '/signin';
+const SettingsView = '/user/settings';
 
 // eslint-disable-next-line
 export default {
@@ -10,5 +11,6 @@ export default {
     RecipeView,
     DrinkView,
     FoodView,
-    SigninView
+    SigninView,
+    SettingsView
 }
