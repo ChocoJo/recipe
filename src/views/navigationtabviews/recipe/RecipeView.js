@@ -1,5 +1,8 @@
-import { useState, useEffect, useContext } from "react"; 
+import { useState, useEffect, createContext } from "react";
 import StarWarsAPIService from "../../../utils/api/service/StarWarsAPIService";
+import { RecipeCard } from "./RecipeCard";
+
+export const CharacterDataContext = createContext();
 
 export const RecipeView = () => {
     const [starWarsData, setStarWarsData] = useState();
@@ -13,7 +16,7 @@ export const RecipeView = () => {
         try {
             const response = await StarWarsAPIService.getStarWarsCharacter(count);
             setStarWarsData(response);
-        } catch(error) {
+        } catch (error) {
             console.log(error);
         }
     }
@@ -25,9 +28,11 @@ export const RecipeView = () => {
     return (
         <div>
             <h1>RecipeView</h1>
-            <h1>Name: {starWarsData?.data?.name}</h1>
-            <h1>Gender: {starWarsData?.data?.gender}</h1>
-            <h1>Birth year: {starWarsData?.data?.birth_year}</h1>
+            <CharacterDataContext.Provider value={[starWarsData, setStarWarsData]}>
+                <div>
+                <RecipeCard />
+                </div>
+            </CharacterDataContext.Provider>
             <button onClick={() => makeSureCountWillNeverGoBelowValueOne()}>Get Previous Character</button>
             <button onClick={() => setCount(count + 1)}>Get Next Character</button>
         </div>
