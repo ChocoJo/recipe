@@ -1,24 +1,15 @@
 import express, { request, response } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import Middlewares from './src/middlewares/Middlewares.js';
+import Configurations from './configurations/Configurations.js'
 
 const application = express();
 application.use(helmet());
 application.use(morgan('common'));
 
-const checkIfAdmin = (request, response, next) => {
-    console.log("is admin!");
-    next();
-}
+application.use(Middlewares.notFound);
+application.use(Middlewares.errorHandler);
 
-application.get('/recipe', (request, response) => {
-    response.send("Ditt API anrop gick igenom");
-});
-
-application.get('/throwdice', checkIfAdmin,  (request, response) => {
-    response.send(Math.random().toString());
-});
-
-application.listen(3001, () => {
-    console.log("Server är igång på port " + 3001);
-});
+Configurations.connectToDatabase();
+Configurations.connectToPort(application);
