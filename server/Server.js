@@ -18,3 +18,5 @@ application.use(Middlewares.errorHandler);
 
 Configurations.connectToDatabase();
 Configurations.connectToPort(application);
+
+export default application
